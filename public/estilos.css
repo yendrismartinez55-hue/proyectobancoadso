@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+a {
+    color: inherit;
+}
+
+.contenedor {
+    width: min(100% - 32px, 1000px);
+    margin: 32px auto;
+}
+
+.tarjeta {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a,
+.boton {
+    display: inline-block;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #1f5eff;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton.secundario,
+nav a.secundario {
+    background: #555;
+}
+
+form {
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+button {
+    margin-top: 18px;
+}
+
+.alerta {
+    padding: 12px 14px;
+    border-radius: 6px;
+    background: #ffe6e6;
+    color: #8a0000;
+    margin-bottom: 16px;
+}
+
+.exito {
+    padding: 12px 14px;
+    border-radius: 6px;
+    background: #e5f7e8;
+    color: #176b26;
+    margin-bottom: 16px;
+}
+
+.saldo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 11px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+@media (max-width: 700px) {
+    .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

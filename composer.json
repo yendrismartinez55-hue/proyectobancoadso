@@ -1,0 +1,19 @@
+{
+    "name": "yendris/banco",
+    "description": "sistema bancario de adso",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yendris-MJ",
+            "email": "yendrismartinez55@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}
