@@ -1,7 +1,3 @@
-<?php
-/** @var array $resumen */
-/** @var array $historial */
-?>
 <div class="cabecera">
     <h1>Transferencias enviadas</h1>
     <nav>
@@ -11,7 +7,7 @@
 </div>
 
 <div class="tarjeta">
-    <p><strong>Total de transferencias:</strong> <?= e($resumen['cantidad']) ?></p>
+    <p><strong>Total de transferencias:</strong> <?= ($resumen['cantidad']) ?></p>
     <p><strong>Total transferido:</strong> $ <?= e(number_format((float) $resumen['total'], 2, ',', '.')) ?></p>
 </div>
 
@@ -30,9 +26,9 @@
             <tbody>
             <?php foreach ($historial as $transferencia): ?>
                 <tr>
-                    <td><?= e($transferencia['fecha']) ?></td>
-                    <td><?= e($transferencia['cuenta_destino']) ?></td>
-                    <td>$ <?= e(number_format((float) $transferencia['valor'], 2, ',', '.')) ?></td>
+                    <td><?= ($transferencia['fecha']) ?></td>
+                    <td><?= ($transferencia['cuenta_destino']) ?></td>
+                    <td>$ <?= (number_format((float) $transferencia['valor'], 2, ',', '.')) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

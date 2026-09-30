@@ -34,7 +34,7 @@ final class AutenticacionControlador
         $error = $_SESSION['error'] ?? null;
         unset($_SESSION['error']);
 
-        Vista::render('autenticacion/login', [
+        Vista::render('Login', [
             'titulo' => 'Inicio de sesión',
             'error' => $error,
         ]);
@@ -46,15 +46,20 @@ final class AutenticacionControlador
         $clave = (string) ($_POST['clave'] ?? '');
 
         try {
-            $cuentaId = $this->servicio->autenticar($numeroCuenta, $clave);
+            $cuentaId = $this->servicio->autenticar(
+                $numeroCuenta,
+                $clave
+            );
 
             session_regenerate_id(true);
             $_SESSION['cuenta_id'] = $cuentaId;
 
             header('Location: ?ruta=cuenta/panel');
             exit;
+
         } catch (CredencialesInvalidasException $e) {
             $_SESSION['error'] = $e->getMessage();
+
             header('Location: ?ruta=autenticacion/login');
             exit;
         }
@@ -66,6 +71,7 @@ final class AutenticacionControlador
 
         if (ini_get('session.use_cookies')) {
             $parametros = session_get_cookie_params();
+
             setcookie(
                 session_name(),
                 '',
@@ -80,6 +86,7 @@ final class AutenticacionControlador
         session_destroy();
 
         header('Location: ?ruta=autenticacion/login');
-        exit;   
+        exit;
     }
 }
+

@@ -3,7 +3,7 @@
     <p>Inicio de sesión</p>
 
     <?php if (!empty($error)): ?>
-        <div class="alerta"><?= e($error) ?></div>
+        <div class="alerta"><?= ($error) ?></div>
     <?php endif; ?>
 
     <form method="post" action="?ruta=autenticacion/autenticar">

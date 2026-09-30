@@ -16,11 +16,11 @@ mysql> INSERT INTO cuentas (id, numero_cuenta, saldo, cliente_id) VALUES
 
 
 mysql> INSERT INTO usuarios (id, cuenta_id, clave_hash) VALUES
-    -> (1, 1, 'hash_clave_001'),
-    -> (2, 2, 'hash_clave_002'),
-    -> (3, 3, 'hash_clave_003'),
-    -> (4, 4, 'hash_clave_004'),
-    -> (5, 5, 'hash_clave_005');
+    -> (1, 1, '123'),
+    -> (2, 2, '456'),
+    -> (3, 3, '789'),
+    -> (4, 4, '321'),
+    -> (5, 5, '432');
 
 
 mysql> INSERT INTO retiros (id, cuenta_id, valor, fecha) VALUES

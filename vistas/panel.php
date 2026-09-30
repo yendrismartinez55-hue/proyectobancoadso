@@ -1,11 +1,8 @@
-<?php
-/** @var array $cuenta */
-/** @var string $titulo */
-?>
+
 <div class="cabecera">
     <div>
         <h1>Banco ADSO</h1>
-        <p>Cuenta <?= e($cuenta['numero_cuenta']) ?></p>
+        <p>Cuenta <?= ($cuenta['numero_cuenta']) ?></p>
     </div>
 
     <nav>
@@ -20,5 +17,5 @@
 
 <div class="tarjeta">
     <h2>Saldo disponible</h2>
-    <div class="saldo">$ <?= e(number_format((float) $cuenta['saldo'], 2, ',', '.')) ?></div>
+    <div class="saldo">$ <?= (number_format((float) $cuenta['saldo'], 2, ',', '.')) ?></div>
 </div>

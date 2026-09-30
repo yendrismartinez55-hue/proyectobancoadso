@@ -2,11 +2,11 @@
     <h1>Realizar transferencia</h1>
 
     <?php if (!empty($error)): ?>
-        <div class="alerta"><?= e($error) ?></div>
+        <div class="alerta"><?= ($error) ?></div>
     <?php endif; ?>
 
     <?php if (!empty($exito)): ?>
-        <div class="exito"><?= e($exito) ?></div>
+        <div class="exito"><?= ($exito) ?></div>
     <?php endif; ?>
 
     <form method="post" action="?ruta=transferencia/guardar">
