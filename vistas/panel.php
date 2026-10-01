@@ -26,19 +26,11 @@
     <h2>Menú</h2>
 
     <p>
-        <a href="?ruta=retiro/formulario">
-            <button type="button">
-                Realizar retiro
-            </button>
-        </a>
+        <a class="enlace-menu" href="?ruta=retiro/formulario">Realizar retiro</a>
     </p>
 
     <p>
-        <a href="?ruta=transferencia/formulario">
-            <button type="button">
-                Realizar transferencia
-            </button>
-        </a>
+        <a class="enlace-menu" href="?ruta=transferencia/formulario">Realizar transferencia</a>
     </p>
 
     <hr>
@@ -46,19 +38,11 @@
     <h2>Historial</h2>
 
     <p>
-        <a href="?ruta=retiro/historial">
-            <button type="button">
-                Historial de retiros
-            </button>
-        </a>
+        <a class="enlace-menu" href="?ruta=retiro/historial">Historial de retiros</a>
     </p>
 
     <p>
-        <a href="?ruta=transferencia/historial">
-            <button type="button">
-                Historial de transferencias
-            </button>
-        </a>
+        <a class="enlace-menu" href="?ruta=transferencia/historial">Historial de transferencias</a>
     </p>
 
     <hr>
