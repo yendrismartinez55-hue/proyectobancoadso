@@ -4,5 +4,5 @@ return [
     'dbname' => 'db_banco_adso',
     'charset' => 'utf8mb4',
     'user' => 'root',
-    'password' => 'Adso2026*',
+    'password' => '1234',
 ];

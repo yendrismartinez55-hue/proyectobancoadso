@@ -21,6 +21,22 @@ class ComposerStaticInit30aba4ae0c6e2db735676085748accb3
     );
 
     public static $classMap = array (
+        'App\\Controladores\\AutenticacionControlador' => __DIR__ . '/../..' . '/src/Controladores/AutenticacionControlador.php',
+        'App\\Controladores\\CuentaControlador' => __DIR__ . '/../..' . '/src/Controladores/CuentaControlador.php',
+        'App\\Controladores\\RetiroControlador' => __DIR__ . '/../..' . '/src/Controladores/RetiroControlador.php',
+        'App\\Modelo\\Cliente' => __DIR__ . '/../..' . '/src/Modelo/Cliente.php',
+        'App\\Modelo\\Retiro' => __DIR__ . '/../..' . '/src/Modelo/Retiro.php',
+        'App\\Modelo\\Transferencia' => __DIR__ . '/../..' . '/src/Modelo/Transferencia.php',
+        'App\\Nucleo\\Conexion' => __DIR__ . '/../..' . '/src/Nucleo/Conexion.php',
+        'App\\Nucleo\\ControladorBase' => __DIR__ . '/../..' . '/src/Nucleo/ControladorBase.php',
+        'App\\Nucleo\\Router' => __DIR__ . '/../..' . '/src/Nucleo/Router.php',
+        'App\\Repositorios\\RepositorioCliente' => __DIR__ . '/../..' . '/src/Repositorios/RepositorioCliente.php',
+        'App\\Repositorios\\RepositorioCuenta' => __DIR__ . '/../..' . '/src/Repositorios/RepositorioCuenta.php',
+        'App\\Repositorios\\RepositorioRetiro' => __DIR__ . '/../..' . '/src/Repositorios/RepositorioRetiro.php',
+        'App\\Repositorios\\RepositorioTransferencia' => __DIR__ . '/../..' . '/src/Repositorios/RepositorioTransferencia.php',
+        'App\\Repositorios\\RepositorioUsuario' => __DIR__ . '/../..' . '/src/Repositorios/RepositorioUsuario.php',
+        'App\\Servicios\\ServicioAutenticacion' => __DIR__ . '/../..' . '/src/Servicios/ServicioAutenticacion.php',
+        'App\\Servicios\\ServicioCuenta' => __DIR__ . '/../..' . '/src/Servicios/ServicioCuenta.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

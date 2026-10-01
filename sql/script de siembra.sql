@@ -15,13 +15,6 @@ mysql> INSERT INTO cuentas (id, numero_cuenta, saldo, cliente_id) VALUES
     -> (5, '100005', 1000000.00, 5);
 
 
-mysql> INSERT INTO usuarios (id, cuenta_id, clave_hash) VALUES
-    -> (1, 1, '123'),
-    -> (2, 2, '456'),
-    -> (3, 3, '789'),
-    -> (4, 4, '321'),
-    -> (5, 5, '432');
-
 
 mysql> INSERT INTO retiros (id, cuenta_id, valor, fecha) VALUES
     -> (1, 1, 50000.00, '2026-09-20 09:30:00'),

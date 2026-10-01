@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Repositorios;
@@ -14,11 +15,18 @@ final class RepositorioCuenta
     public function obtenerPorNumero(string $numeroCuenta): ?array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, numero_cuenta, saldo, cliente_id
+            'SELECT 
+                id,
+                numero_cuenta,
+                saldo,
+                cliente_id
              FROM cuentas
              WHERE numero_cuenta = :numero_cuenta'
         );
-        $stmt->execute(['numero_cuenta' => $numeroCuenta]);
+
+        $stmt->execute([
+            'numero_cuenta' => $numeroCuenta
+        ]);
 
         return $stmt->fetch() ?: null;
     }
@@ -26,11 +34,21 @@ final class RepositorioCuenta
     public function obtenerPorId(int $id): ?array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, numero_cuenta, saldo, cliente_id
+            'SELECT 
+                cuentas.id,
+                cuentas.numero_cuenta,
+                cuentas.saldo,
+                cuentas.cliente_id,
+                clientes.nombre
              FROM cuentas
-             WHERE id = :id'
+             INNER JOIN clientes
+                ON clientes.id = cuentas.cliente_id
+             WHERE cuentas.id = :id'
         );
-        $stmt->execute(['id' => $id]);
+
+        $stmt->execute([
+            'id' => $id
+        ]);
 
         return $stmt->fetch() ?: null;
     }
@@ -40,15 +58,19 @@ final class RepositorioCuenta
         $stmt = $this->pdo->prepare(
             'UPDATE cuentas
              SET saldo = saldo - :valor
-             WHERE id = :id AND saldo >= :valor'
+             WHERE id = :id
+             AND saldo >= :valor'
         );
+
         $stmt->execute([
             'valor' => $valor,
             'id' => $id,
         ]);
 
         if ($stmt->rowCount() !== 1) {
-            throw new \RuntimeException('No fue posible descontar el saldo.');
+            throw new \RuntimeException(
+                'No fue posible descontar el saldo.'
+            );
         }
     }
 
@@ -59,13 +81,17 @@ final class RepositorioCuenta
              SET saldo = saldo + :valor
              WHERE id = :id'
         );
+
         $stmt->execute([
             'valor' => $valor,
             'id' => $id,
         ]);
 
         if ($stmt->rowCount() !== 1) {
-            throw new \RuntimeException('No fue posible abonar el saldo.');
+            throw new \RuntimeException(
+                'No fue posible abonar el saldo.'
+            );
         }
     }
 }
+

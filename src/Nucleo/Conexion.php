@@ -15,7 +15,7 @@ final class Conexion
             return new PDO(
                 'mysql:host=127.0.0.1;dbname=db_banco_adso;charset=utf8mb4',
                 'root',
-                'Adso2026*',
+                '1234',
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

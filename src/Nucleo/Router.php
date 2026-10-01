@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Nucleo;
 
 use App\Controladores\AutenticacionControlador;
+use App\Controladores\CuentaControlador;
 use App\Controladores\SesionControlador;
 use App\Controladores\RetiroControlador;
 use App\Controladores\TransferenciaControlador;
@@ -24,6 +25,7 @@ final class Router
 
         $mapa = [
             'autenticacion' => AutenticacionControlador::class,
+            'cuenta' => CuentaControlador::class,
             'sesion' => SesionControlador::class,
             'retiro' => RetiroControlador::class,
             'transferencia' => TransferenciaControlador::class,
@@ -58,3 +60,4 @@ final class Router
         ]);
     }
 }
+

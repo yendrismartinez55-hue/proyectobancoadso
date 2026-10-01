@@ -31,7 +31,7 @@ final class CuentaControlador extends ControladorBase
         $cuentaId = $this->exigirSesion();
         $cuenta = $this->servicio->obtenerPanel($cuentaId);
 
-        Vista::render('cuenta/panel', [
+        Vista::render('panel', [
             'titulo' => 'Mi cuenta',
             'cuenta' => $cuenta,
         ]);

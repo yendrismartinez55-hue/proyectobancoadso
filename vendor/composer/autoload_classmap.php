@@ -6,5 +6,21 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controladores\\AutenticacionControlador' => $baseDir . '/src/Controladores/AutenticacionControlador.php',
+    'App\\Controladores\\CuentaControlador' => $baseDir . '/src/Controladores/CuentaControlador.php',
+    'App\\Controladores\\RetiroControlador' => $baseDir . '/src/Controladores/RetiroControlador.php',
+    'App\\Modelo\\Cliente' => $baseDir . '/src/Modelo/Cliente.php',
+    'App\\Modelo\\Retiro' => $baseDir . '/src/Modelo/Retiro.php',
+    'App\\Modelo\\Transferencia' => $baseDir . '/src/Modelo/Transferencia.php',
+    'App\\Nucleo\\Conexion' => $baseDir . '/src/Nucleo/Conexion.php',
+    'App\\Nucleo\\ControladorBase' => $baseDir . '/src/Nucleo/ControladorBase.php',
+    'App\\Nucleo\\Router' => $baseDir . '/src/Nucleo/Router.php',
+    'App\\Repositorios\\RepositorioCliente' => $baseDir . '/src/Repositorios/RepositorioCliente.php',
+    'App\\Repositorios\\RepositorioCuenta' => $baseDir . '/src/Repositorios/RepositorioCuenta.php',
+    'App\\Repositorios\\RepositorioRetiro' => $baseDir . '/src/Repositorios/RepositorioRetiro.php',
+    'App\\Repositorios\\RepositorioTransferencia' => $baseDir . '/src/Repositorios/RepositorioTransferencia.php',
+    'App\\Repositorios\\RepositorioUsuario' => $baseDir . '/src/Repositorios/RepositorioUsuario.php',
+    'App\\Servicios\\ServicioAutenticacion' => $baseDir . '/src/Servicios/ServicioAutenticacion.php',
+    'App\\Servicios\\ServicioCuenta' => $baseDir . '/src/Servicios/ServicioCuenta.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

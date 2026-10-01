@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Repositorios;
@@ -35,19 +36,22 @@ final class RepositorioTransferencia
         $stmt = $this->pdo->prepare(
             'SELECT
                 t.id,
-                t.cuenta_origen_id,
-                t.cuenta_destino_id,
                 t.valor,
                 t.fecha,
-                c.numero_cuenta AS cuenta_destino
+                origen.numero_cuenta AS cuenta_origen,
+                destino.numero_cuenta AS cuenta_destino
              FROM transferencias t
-             INNER JOIN cuentas c
-                ON c.id = t.cuenta_destino_id
+             INNER JOIN cuentas origen
+                ON origen.id = t.cuenta_origen_id
+             INNER JOIN cuentas destino
+                ON destino.id = t.cuenta_destino_id
              WHERE t.cuenta_origen_id = :cuenta_id
              ORDER BY t.fecha DESC, t.id DESC'
         );
 
-        $stmt->execute(['cuenta_id' => $cuentaId]);
+        $stmt->execute([
+            'cuenta_id' => $cuentaId
+        ]);
 
         return $stmt->fetchAll();
     }
@@ -55,14 +59,21 @@ final class RepositorioTransferencia
     public function obtenerResumenEnviadas(int $cuentaId): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT COUNT(*) AS cantidad,
-                    COALESCE(SUM(valor), 0.00) AS total
+            'SELECT
+                COUNT(*) AS cantidad,
+                COALESCE(SUM(valor), 0.00) AS total
              FROM transferencias
              WHERE cuenta_origen_id = :cuenta_id'
         );
 
-        $stmt->execute(['cuenta_id' => $cuentaId]);
+        $stmt->execute([
+            'cuenta_id' => $cuentaId
+        ]);
 
-        return $stmt->fetch() ?: ['cantidad' => 0, 'total' => '0.00'];
+        return $stmt->fetch()
+            ?: [
+                'cantidad' => 0,
+                'total' => '0.00'
+            ];
     }
 }

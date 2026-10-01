@@ -1,21 +1,79 @@
+<h1>Mi cuenta</h1>
 
-<div class="cabecera">
-    <div>
-        <h1>Banco ADSO</h1>
-        <p>Cuenta <?= ($cuenta['numero_cuenta']) ?></p>
-    </div>
+<?php if (!empty($cuenta)): ?>
 
-    <nav>
-        <a href="?ruta=cuenta/panel">Inicio</a>
-        <a href="?ruta=retiro/formulario">Retirar</a>
-        <a href="?ruta=retiro/historial">Retiros</a>
-        <a href="?ruta=transferencia/formulario">Transferir</a>
-        <a href="?ruta=transferencia/historial">Transferencias</a>
-        <a class="secundario" href="?ruta=autenticacion/salir">Salir</a>
-    </nav>
-</div>
+    <h2>
+        Bienvenido, <?= htmlspecialchars($cuenta['nombre']) ?>
+    </h2>
 
-<div class="tarjeta">
-    <h2>Saldo disponible</h2>
-    <div class="saldo">$ <?= (number_format((float) $cuenta['saldo'], 2, ',', '.')) ?></div>
-</div>
+    <p>
+        <strong>Número de cuenta:</strong>
+        <?= htmlspecialchars($cuenta['numero_cuenta']) ?>
+    </p>
+
+    <p>
+        <strong>Saldo disponible:</strong>
+        $<?= number_format(
+            (float) $cuenta['saldo'],
+            2,
+            ',',
+            '.'
+        ) ?>
+    </p>
+
+    <hr>
+
+    <h2>Menú</h2>
+
+    <p>
+        <a href="?ruta=retiro/formulario">
+            <button type="button">
+                Realizar retiro
+            </button>
+        </a>
+    </p>
+
+    <p>
+        <a href="?ruta=transferencia/formulario">
+            <button type="button">
+                Realizar transferencia
+            </button>
+        </a>
+    </p>
+
+    <hr>
+
+    <h2>Historial</h2>
+
+    <p>
+        <a href="?ruta=retiro/historial">
+            <button type="button">
+                Historial de retiros
+            </button>
+        </a>
+    </p>
+
+    <p>
+        <a href="?ruta=transferencia/historial">
+            <button type="button">
+                Historial de transferencias
+            </button>
+        </a>
+    </p>
+
+    <hr>
+
+    <p>
+        <a href="?ruta=autenticacion/salir">
+            <button type="button">
+                Cerrar sesión
+            </button>
+        </a>
+    </p>
+
+<?php else: ?>
+
+    <p>No se encontraron los datos de la cuenta.</p>
+
+<?php endif; ?>
+

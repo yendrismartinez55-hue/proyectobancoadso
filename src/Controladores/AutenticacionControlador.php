@@ -1,9 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controladores;
 
-use App\Excepciones\CredencialesInvalidasException;
 use App\Nucleo\Conexion;
 use App\Nucleo\Vista;
 use App\Repositorios\RepositorioCuenta;
@@ -32,17 +32,21 @@ final class AutenticacionControlador
         }
 
         $error = $_SESSION['error'] ?? null;
+
         unset($_SESSION['error']);
 
         Vista::render('Login', [
             'titulo' => 'Inicio de sesión',
-            'error' => $error,
+            'error' => $error
         ]);
     }
 
     public function autenticarAccion(): void
     {
-        $numeroCuenta = trim((string) ($_POST['numero_cuenta'] ?? ''));
+        $numeroCuenta = trim(
+            (string) ($_POST['numero_cuenta'] ?? '')
+        );
+
         $clave = (string) ($_POST['clave'] ?? '');
 
         try {
@@ -52,13 +56,16 @@ final class AutenticacionControlador
             );
 
             session_regenerate_id(true);
+
             $_SESSION['cuenta_id'] = $cuentaId;
 
             header('Location: ?ruta=cuenta/panel');
             exit;
 
-        } catch (CredencialesInvalidasException $e) {
-            $_SESSION['error'] = $e->getMessage();
+        } catch (\RuntimeException $e) {
+
+            $_SESSION['error'] =
+                'Número de cuenta o contraseña incorrectos.';
 
             header('Location: ?ruta=autenticacion/login');
             exit;
@@ -89,4 +96,3 @@ final class AutenticacionControlador
         exit;
     }
 }
-
